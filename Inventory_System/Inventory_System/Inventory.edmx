@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Inventory_Sys.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Client_ID" />
+          </Key>
+          <Property Name="Client_ID" Type="int" Nullable="false" />
+          <Property Name="Client_Name" Type="nchar" MaxLength="25" />
+          <Property Name="Client_Phone" Type="int" />
+          <Property Name="Client_Mobile" Type="int" />
+          <Property Name="Client_Website" Type="nchar" MaxLength="25" />
+          <Property Name="Client_Mail" Type="nchar" MaxLength="25" />
+          <Property Name="Client_Fax" Type="nchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="int" Nullable="false" />
+          <Property Name="Emp_Name" Type="nchar" MaxLength="25" />
+          <Property Name="Emp_Mail" Type="nchar" MaxLength="25" />
+          <Property Name="Emp_Address" Type="nchar" MaxLength="25" />
+          <Property Name="Emp_Phone" Type="int" />
+        </EntityType>
+        <EntityType Name="Exports">
+          <Key>
+            <PropertyRef Name="Client_ID" />
+            <PropertyRef Name="Item_ID" />
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Client_ID" Type="int" Nullable="false" />
+          <Property Name="Item_ID" Type="int" Nullable="false" />
+          <Property Name="Export_Date" Type="date" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Emp_ID" Type="int" Nullable="false" />
+          <Property Name="Export_ID" Type="int" />
+          <Property Name="Supplier_Name" Type="nchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Imports">
+          <Key>
+            <PropertyRef Name="Supplier_ID" />
+            <PropertyRef Name="Item_ID" />
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Supplier_ID" Type="int" Nullable="false" />
+          <Property Name="Item_ID" Type="int" Nullable="false" />
+          <Property Name="Import_Date" Type="date" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Emp_ID" Type="int" Nullable="false" />
+          <Property Name="Import_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="Inventory_ID" />
+          </Key>
+          <Property Name="Inventory_ID" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nchar" MaxLength="25" />
+          <Property Name="Name" Type="nchar" MaxLength="25" />
+          <Property Name="EmpResp_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Inventory_Items">
+          <Key>
+            <PropertyRef Name="Inventory_ID" />
+            <PropertyRef Name="Item_ID" />
+          </Key>
+          <Property Name="Inventory_ID" Type="int" Nullable="false" />
+          <Property Name="Item_ID" Type="int" Nullable="false" />
+          <Property Name="Item_Quantity" Type="int" Nullable="false" />
+          <Property Name="Transfer_from" Type="int" />
+          <Property Name="Transfer_to" Type="int" />
+          <Property Name="Transfer_Date" Type="date" />
+          <Property Name="Quantity_Transferred" Type="int" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Item_Code" />
+          </Key>
+          <Property Name="Item_Code" Type="int" Nullable="false" />
+          <Property Name="Item_Name" Type="nchar" MaxLength="25" Nullable="false" />
+          <Property Name="Measuring_Unit" Type="nchar" MaxLength="25" />
+          <Property Name="Production_Date" Type="date" Nullable="false" />
+          <Property Name="Expiry_Date" Type="date" Nullable="false" />
+          <Property Name="Total_Quantity" Type="int" />
+          <Property Name="Entry_Date" Type="date" Nullable="false" />
+          <Property Name="Price" Type="int" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="Supplier_ID" />
+          </Key>
+          <Property Name="Supplier_ID" Type="int" Nullable="false" />
+          <Property Name="Supplier_Name" Type="nchar" MaxLength="25" />
+          <Property Name="Supplier_Phone" Type="int" />
+          <Property Name="Supplier_Mobile" Type="int" />
+          <Property Name="Supplier_Website" Type="nchar" MaxLength="25" />
+          <Property Name="Supplier_Mail" Type="nchar" MaxLength="25" />
+          <Property Name="Supplier_Fax" Type="nchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Exports_Clients1">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Exports" Type="Self.Exports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Client_ID" />
+            </Principal>
+            <Dependent Role="Exports">
+              <PropertyRef Name="Client_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exports_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Exports" Type="Self.Exports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Exports">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exports_Items1">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Exports" Type="Self.Exports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Item_Code" />
+            </Principal>
+            <Dependent Role="Exports">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imports_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Imports" Type="Self.Imports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Imports">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imports_Items1">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Imports" Type="Self.Imports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Item_Code" />
+            </Principal>
+            <Dependent Role="Imports">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imports_Suppliers1">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+          <End Role="Imports" Type="Self.Imports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="Supplier_ID" />
+            </Principal>
+            <Dependent Role="Imports">
+              <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="EmpResp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Items_Inventory">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="1" />
+          <End Role="Inventory_Items" Type="Self.Inventory_Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="Inventory_ID" />
+            </Principal>
+            <Dependent Role="Inventory_Items">
+              <PropertyRef Name="Inventory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Items_Items1">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Inventory_Items" Type="Self.Inventory_Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Item_Code" />
+            </Principal>
+            <Dependent Role="Inventory_Items">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Inventory_SysStoreContainer">
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exports" EntityType="Self.Exports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Imports" EntityType="Self.Imports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Items" EntityType="Self.Inventory_Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Exports_Clients1" Association="Self.FK_Exports_Clients1">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Exports" EntitySet="Exports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exports_Employee" Association="Self.FK_Exports_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Exports" EntitySet="Exports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exports_Items1" Association="Self.FK_Exports_Items1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Exports" EntitySet="Exports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imports_Employee" Association="Self.FK_Imports_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Imports" EntitySet="Imports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imports_Items1" Association="Self.FK_Imports_Items1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Imports" EntitySet="Imports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imports_Suppliers1" Association="Self.FK_Imports_Suppliers1">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Imports" EntitySet="Imports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Employee" Association="Self.FK_Inventory_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Items_Inventory" Association="Self.FK_Inventory_Items_Inventory">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Inventory_Items" EntitySet="Inventory_Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Items_Items1" Association="Self.FK_Inventory_Items_Items1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Inventory_Items" EntitySet="Inventory_Items" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Inventory_Sys" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Client_ID" />
+          </Key>
+          <Property Name="Client_ID" Type="Int32" Nullable="false" />
+          <Property Name="Client_Name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Client_Phone" Type="Int32" />
+          <Property Name="Client_Mobile" Type="Int32" />
+          <Property Name="Client_Website" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Client_Mail" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Client_Fax" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Exports" Relationship="Self.FK_Exports_Clients" FromRole="Clients" ToRole="Exports" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int32" Nullable="false" />
+          <Property Name="Emp_Name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Emp_Mail" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Emp_Address" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Emp_Phone" Type="Int32" />
+          <NavigationProperty Name="Exports" Relationship="Self.FK_Exports_Employee" FromRole="Employee" ToRole="Exports" />
+          <NavigationProperty Name="Imports" Relationship="Self.FK_Imports_Employee" FromRole="Employee" ToRole="Imports" />
+          <NavigationProperty Name="Inventories" Relationship="Self.FK_Inventory_Employee" FromRole="Employee" ToRole="Inventory" />
+        </EntityType>
+        <EntityType Name="Export">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="Client_ID" />
+            <PropertyRef Name="Item_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int32" Nullable="false" />
+          <Property Name="Client_ID" Type="Int32" Nullable="false" />
+          <Property Name="Item_ID" Type="Int32" Nullable="false" />
+          <Property Name="Export_ID" Type="Int32" />
+          <Property Name="Export_Date" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Exports_Clients" FromRole="Exports" ToRole="Clients" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Exports_Employee" FromRole="Exports" ToRole="Employee" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Exports_Items" FromRole="Exports" ToRole="Items" />
+          <Property Name="Supplier_Name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Import">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="Supplier_ID" />
+            <PropertyRef Name="Item_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int32" Nullable="false" />
+          <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+          <Property Name="Item_ID" Type="Int32" Nullable="false" />
+          <Property Name="Import_ID" Type="Int32" />
+          <Property Name="Import_Date" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Imports_Employee" FromRole="Imports" ToRole="Employee" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Imports_Items" FromRole="Imports" ToRole="Items" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Imports_Suppliers" FromRole="Imports" ToRole="Suppliers" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="Inventory_ID" />
+          </Key>
+          <Property Name="Inventory_ID" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="EmpResp_ID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Inventory_Employee" FromRole="Inventory" ToRole="Employee" />
+          <NavigationProperty Name="Inventory_Items" Relationship="Self.FK_Inventory_Items_Inventory1" FromRole="Inventory" ToRole="Inventory_Items" />
+        </EntityType>
+        <EntityType Name="Inventory_Items">
+          <Key>
+            <PropertyRef Name="Inventory_ID" />
+            <PropertyRef Name="Item_ID" />
+          </Key>
+          <Property Name="Inventory_ID" Type="Int32" Nullable="false" />
+          <Property Name="Item_ID" Type="Int32" Nullable="false" />
+          <Property Name="Item_Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_Inventory_Items_Inventory1" FromRole="Inventory_Items" ToRole="Inventory" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Inventory_Items_Items" FromRole="Inventory_Items" ToRole="Items" />
+          <Property Name="Transfer_to" Type="Int32" />
+          <Property Name="Transfer_from" Type="Int32" />
+          <Property Name="Transfer_Date" Type="DateTime" Precision="0" />
+          <Property Name="Quantity_Transferred" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Item_Code" />
+          </Key>
+          <Property Name="Item_Code" Type="Int32" Nullable="false" />
+          <Property Name="Item_Name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Measuring_Unit" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Production_Date" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="Expiry_Date" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="Total_Quantity" Type="Int32" />
+          <Property Name="Entry_Date" Type="DateTime" Precision="0" Nullable="false" />
+          <NavigationProperty Name="Exports" Relationship="Self.FK_Exports_Items" FromRole="Items" ToRole="Exports" />
+          <NavigationProperty Name="Imports" Relationship="Self.FK_Imports_Items" FromRole="Items" ToRole="Imports" />
+          <NavigationProperty Name="Inventory_Items" Relationship="Self.FK_Inventory_Items_Items" FromRole="Items" ToRole="Inventory_Items" />
+          <Property Name="Price" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Supplier_ID" />
+          </Key>
+          <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+          <Property Name="Supplier_Name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Supplier_Phone" Type="Int32" />
+          <Property Name="Supplier_Mobile" Type="Int32" />
+          <Property Name="Supplier_Website" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Supplier_Mail" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Supplier_Fax" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Imports" Relationship="Self.FK_Imports_Suppliers" FromRole="Suppliers" ToRole="Imports" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Exports_Clients">
+          <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+          <End Role="Exports" Type="Self.Export" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Client_ID" />
+            </Principal>
+            <Dependent Role="Exports">
+              <PropertyRef Name="Client_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exports_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Exports" Type="Self.Export" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Exports">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imports_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Imports" Type="Self.Import" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Imports">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="EmpResp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exports_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Exports" Type="Self.Export" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Item_Code" />
+            </Principal>
+            <Dependent Role="Exports">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imports_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Imports" Type="Self.Import" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Item_Code" />
+            </Principal>
+            <Dependent Role="Imports">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imports_Suppliers">
+          <End Role="Suppliers" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Imports" Type="Self.Import" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="Supplier_ID" />
+            </Principal>
+            <Dependent Role="Imports">
+              <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Items_Inventory1">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="1" />
+          <End Role="Inventory_Items" Type="Self.Inventory_Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="Inventory_ID" />
+            </Principal>
+            <Dependent Role="Inventory_Items">
+              <PropertyRef Name="Inventory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Items_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Inventory_Items" Type="Self.Inventory_Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Item_Code" />
+            </Principal>
+            <Dependent Role="Inventory_Items">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InventorySystem" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Exports" EntityType="Self.Export" />
+          <EntitySet Name="Imports" EntityType="Self.Import" />
+          <EntitySet Name="Inventories" EntityType="Self.Inventory" />
+          <EntitySet Name="Inventory_Items" EntityType="Self.Inventory_Items" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_Exports_Clients" Association="Self.FK_Exports_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Exports" EntitySet="Exports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exports_Employee" Association="Self.FK_Exports_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Exports" EntitySet="Exports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imports_Employee" Association="Self.FK_Imports_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Imports" EntitySet="Imports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Employee" Association="Self.FK_Inventory_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exports_Items" Association="Self.FK_Exports_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Exports" EntitySet="Exports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imports_Items" Association="Self.FK_Imports_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Imports" EntitySet="Imports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imports_Suppliers" Association="Self.FK_Imports_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Imports" EntitySet="Imports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Items_Inventory1" Association="Self.FK_Inventory_Items_Inventory1">
+            <End Role="Inventory" EntitySet="Inventories" />
+            <End Role="Inventory_Items" EntitySet="Inventory_Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Items_Items" Association="Self.FK_Inventory_Items_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Inventory_Items" EntitySet="Inventory_Items" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Inventory_SysStoreContainer" CdmEntityContainer="InventorySystem">
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Inventory_Sys.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+                <ScalarProperty Name="Client_Name" ColumnName="Client_Name" />
+                <ScalarProperty Name="Client_Phone" ColumnName="Client_Phone" />
+                <ScalarProperty Name="Client_Mobile" ColumnName="Client_Mobile" />
+                <ScalarProperty Name="Client_Website" ColumnName="Client_Website" />
+                <ScalarProperty Name="Client_Mail" ColumnName="Client_Mail" />
+                <ScalarProperty Name="Client_Fax" ColumnName="Client_Fax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="Inventory_Sys.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+                <ScalarProperty Name="Emp_Mail" ColumnName="Emp_Mail" />
+                <ScalarProperty Name="Emp_Address" ColumnName="Emp_Address" />
+                <ScalarProperty Name="Emp_Phone" ColumnName="Emp_Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exports">
+            <EntityTypeMapping TypeName="Inventory_Sys.Export">
+              <MappingFragment StoreEntitySet="Exports">
+                <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="Export_ID" ColumnName="Export_ID" />
+                <ScalarProperty Name="Export_Date" ColumnName="Export_Date" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imports">
+            <EntityTypeMapping TypeName="Inventory_Sys.Import">
+              <MappingFragment StoreEntitySet="Imports">
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="Import_ID" ColumnName="Import_ID" />
+                <ScalarProperty Name="Import_Date" ColumnName="Import_Date" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventories">
+            <EntityTypeMapping TypeName="Inventory_Sys.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmpResp_ID" ColumnName="EmpResp_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Items">
+            <EntityTypeMapping TypeName="Inventory_Sys.Inventory_Items">
+              <MappingFragment StoreEntitySet="Inventory_Items">
+                <ScalarProperty Name="Quantity_Transferred" ColumnName="Quantity_Transferred" />
+                <ScalarProperty Name="Transfer_Date" ColumnName="Transfer_Date" />
+                <ScalarProperty Name="Transfer_from" ColumnName="Transfer_from" />
+                <ScalarProperty Name="Transfer_to" ColumnName="Transfer_to" />
+                <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="Item_Quantity" ColumnName="Item_Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="Inventory_Sys.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Item_Code" ColumnName="Item_Code" />
+                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+                <ScalarProperty Name="Measuring_Unit" ColumnName="Measuring_Unit" />
+                <ScalarProperty Name="Production_Date" ColumnName="Production_Date" />
+                <ScalarProperty Name="Expiry_Date" ColumnName="Expiry_Date" />
+                <ScalarProperty Name="Total_Quantity" ColumnName="Total_Quantity" />
+                <ScalarProperty Name="Entry_Date" ColumnName="Entry_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="Inventory_Sys.Supplier">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+                <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
+                <ScalarProperty Name="Supplier_Phone" ColumnName="Supplier_Phone" />
+                <ScalarProperty Name="Supplier_Mobile" ColumnName="Supplier_Mobile" />
+                <ScalarProperty Name="Supplier_Website" ColumnName="Supplier_Website" />
+                <ScalarProperty Name="Supplier_Mail" ColumnName="Supplier_Mail" />
+                <ScalarProperty Name="Supplier_Fax" ColumnName="Supplier_Fax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Inventory_Sys.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

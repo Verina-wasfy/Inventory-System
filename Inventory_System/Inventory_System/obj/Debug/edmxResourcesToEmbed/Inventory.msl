@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Inventory_SysStoreContainer" CdmEntityContainer="InventorySystem">
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="Inventory_Sys.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="Client_Name" ColumnName="Client_Name" />
+          <ScalarProperty Name="Client_Phone" ColumnName="Client_Phone" />
+          <ScalarProperty Name="Client_Mobile" ColumnName="Client_Mobile" />
+          <ScalarProperty Name="Client_Website" ColumnName="Client_Website" />
+          <ScalarProperty Name="Client_Mail" ColumnName="Client_Mail" />
+          <ScalarProperty Name="Client_Fax" ColumnName="Client_Fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Inventory_Sys.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+          <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+          <ScalarProperty Name="Emp_Mail" ColumnName="Emp_Mail" />
+          <ScalarProperty Name="Emp_Address" ColumnName="Emp_Address" />
+          <ScalarProperty Name="Emp_Phone" ColumnName="Emp_Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exports">
+      <EntityTypeMapping TypeName="Inventory_Sys.Export">
+        <MappingFragment StoreEntitySet="Exports">
+          <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
+          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+          <ScalarProperty Name="Export_ID" ColumnName="Export_ID" />
+          <ScalarProperty Name="Export_Date" ColumnName="Export_Date" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Imports">
+      <EntityTypeMapping TypeName="Inventory_Sys.Import">
+        <MappingFragment StoreEntitySet="Imports">
+          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+          <ScalarProperty Name="Import_ID" ColumnName="Import_ID" />
+          <ScalarProperty Name="Import_Date" ColumnName="Import_Date" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="Inventory_Sys.Inventory">
+        <MappingFragment StoreEntitySet="Inventory">
+          <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmpResp_ID" ColumnName="EmpResp_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventory_Items">
+      <EntityTypeMapping TypeName="Inventory_Sys.Inventory_Items">
+        <MappingFragment StoreEntitySet="Inventory_Items">
+          <ScalarProperty Name="Quantity_Transferred" ColumnName="Quantity_Transferred" />
+          <ScalarProperty Name="Transfer_Date" ColumnName="Transfer_Date" />
+          <ScalarProperty Name="Transfer_from" ColumnName="Transfer_from" />
+          <ScalarProperty Name="Transfer_to" ColumnName="Transfer_to" />
+          <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+          <ScalarProperty Name="Item_Quantity" ColumnName="Item_Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="Inventory_Sys.Item">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Item_Code" ColumnName="Item_Code" />
+          <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+          <ScalarProperty Name="Measuring_Unit" ColumnName="Measuring_Unit" />
+          <ScalarProperty Name="Production_Date" ColumnName="Production_Date" />
+          <ScalarProperty Name="Expiry_Date" ColumnName="Expiry_Date" />
+          <ScalarProperty Name="Total_Quantity" ColumnName="Total_Quantity" />
+          <ScalarProperty Name="Entry_Date" ColumnName="Entry_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="Inventory_Sys.Supplier">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
+          <ScalarProperty Name="Supplier_Phone" ColumnName="Supplier_Phone" />
+          <ScalarProperty Name="Supplier_Mobile" ColumnName="Supplier_Mobile" />
+          <ScalarProperty Name="Supplier_Website" ColumnName="Supplier_Website" />
+          <ScalarProperty Name="Supplier_Mail" ColumnName="Supplier_Mail" />
+          <ScalarProperty Name="Supplier_Fax" ColumnName="Supplier_Fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Inventory_Sys.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

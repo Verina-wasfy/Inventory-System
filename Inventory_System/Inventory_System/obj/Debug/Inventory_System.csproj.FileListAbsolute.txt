@@ -1,0 +1,72 @@
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\bin\Debug\Inventory_System.exe.config
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\bin\Debug\Inventory_System.exe
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\bin\Debug\Inventory_System.pdb
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\bin\Debug\EntityFramework.dll
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\bin\Debug\EntityFramework.xml
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.csprojAssemblyReference.cache
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Dashboard.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Employees.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Invent0ry.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Properties.Resources.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.csproj.GenerateResource.cache
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.csproj.CopyComplete
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.exe
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.pdb
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Client1.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Item1.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Supplier1.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Export1.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Import1.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report1.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Transaction1.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Cover.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Export_Preview.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Import_Preview.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report_1.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report_2.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report_4.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report_5.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report_3.resources
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\bin\Debug\Inventory_System.exe.manifest
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\bin\Debug\Inventory_System.application
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.TrustInfo.xml
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.exe.manifest
+C:\Users\Vee\source\repos\Inventory_System\Inventory_System\obj\Debug\Inventory_System.application
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\bin\Debug\Inventory_System.exe.config
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\bin\Debug\Inventory_System.exe.manifest
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\bin\Debug\Inventory_System.application
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\bin\Debug\Inventory_System.exe
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\bin\Debug\Inventory_System.pdb
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\bin\Debug\EntityFramework.dll
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\bin\Debug\EntityFramework.SqlServer.dll
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\bin\Debug\EntityFramework.xml
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\bin\Debug\EntityFramework.SqlServer.xml
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.csprojAssemblyReference.cache
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Client1.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Cover.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Dashboard.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Employees.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Export1.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Export_Preview.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Import1.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Import_Preview.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Invent0ry.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Item1.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Properties.Resources.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report1.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report_1.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report_2.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report_3.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report_4.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Report_5.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Supplier1.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.Transaction1.resources
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.csproj.GenerateResource.cache
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.TrustInfo.xml
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.exe.manifest
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.application
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.csproj.CopyComplete
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.exe
+F:\Programing things\ITI curriculum\Programming Data & Entity framework\Inventory_System\Inventory_System\obj\Debug\Inventory_System.pdb

@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2FCCB72D-7097-441E-BD97-C6840F2187CA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Inventory_System</RootNamespace>
+    <AssemblyName>Inventory_System</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>F:\Programing things\ITI curriculum\Programming Data &amp; Entity framework\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Inventory_System.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E9526E8D314CD0A169F48091E1E812F4B9CEF2BF</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Inventory_System_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cover.Designer.cs">
+      <DependentUpon>Cover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Export.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees.Designer.cs">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client1.Designer.cs">
+      <DependentUpon>Client1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export1.Designer.cs">
+      <DependentUpon>Export1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export_Preview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export_Preview.Designer.cs">
+      <DependentUpon>Export_Preview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Import1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import1.Designer.cs">
+      <DependentUpon>Import1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Import_Preview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import_Preview.Designer.cs">
+      <DependentUpon>Import_Preview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item1.Designer.cs">
+      <DependentUpon>Item1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invent0ry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invent0ry.Designer.cs">
+      <DependentUpon>Invent0ry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Import.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inventory.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inventory.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory_Items.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report1.Designer.cs">
+      <DependentUpon>Report1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_1.Designer.cs">
+      <DependentUpon>Report_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_2.Designer.cs">
+      <DependentUpon>Report_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_3.Designer.cs">
+      <DependentUpon>Report_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_4.Designer.cs">
+      <DependentUpon>Report_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_5.Designer.cs">
+      <DependentUpon>Report_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supplier1.Designer.cs">
+      <DependentUpon>Supplier1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction1.Designer.cs">
+      <DependentUpon>Transaction1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Client1.resx">
+      <DependentUpon>Client1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cover.resx">
+      <DependentUpon>Cover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees.resx">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export1.resx">
+      <DependentUpon>Export1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export_Preview.resx">
+      <DependentUpon>Export_Preview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import1.resx">
+      <DependentUpon>Import1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import_Preview.resx">
+      <DependentUpon>Import_Preview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invent0ry.resx">
+      <DependentUpon>Invent0ry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item1.resx">
+      <DependentUpon>Item1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report1.resx">
+      <DependentUpon>Report1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_1.resx">
+      <DependentUpon>Report_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_2.resx">
+      <DependentUpon>Report_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_3.resx">
+      <DependentUpon>Report_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_4.resx">
+      <DependentUpon>Report_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_5.resx">
+      <DependentUpon>Report_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supplier1.resx">
+      <DependentUpon>Supplier1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction1.resx">
+      <DependentUpon>Transaction1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Inventory.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Inventory.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Inventory.edmx.diagram">
+      <DependentUpon>Inventory.edmx</DependentUpon>
+    </None>
+    <None Include="Inventory_System_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Inventory.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Inventory.Context.cs</LastGenOutput>
+      <DependentUpon>Inventory.edmx</DependentUpon>
+    </Content>
+    <Content Include="Inventory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Inventory.edmx</DependentUpon>
+      <LastGenOutput>Inventory1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
